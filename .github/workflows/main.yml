@@ -21,6 +21,13 @@ jobs:
         
       - name : make_txt 
         run : echo hi > world.txt
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: my_file.txt
+          retention-days: 5
+
         
         
  
