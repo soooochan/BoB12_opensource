@@ -20,11 +20,11 @@ jobs:
         run: python -c "import sys; print(sys.version)"
         
       - uses: actions/checkout@v3
-      - run: echo hello > hello.txt
+      - run: echo ${{ matrix.python-version }} > ${{ matrix.python-version }}.txt
       - uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: hello.txt
+          name: ${{ matrix.python-version }}
+          path: ${{ matrix.python-version }}.txt
     
         
         
