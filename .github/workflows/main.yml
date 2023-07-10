@@ -18,12 +18,11 @@ jobs:
           
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      
+      - name: npm install, build and test 
+        run: |
+            npm install
+            npm run build --if-present 
+            npm test 
+      
   
-      - name : Test with test
-        run: ./test 
-        
-      - name : Upload Apk 
-        uses : actions/upload-artifact@v3
-        with : 
-          name : android-artifact 
-          path : app/build/outputs/apk/release # 폴저 지정 : 이 폴더 아래의 모든 파일들이 하나의 artifact로 지정된다. 
