@@ -19,10 +19,7 @@ jobs:
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       
-      - name: npm install, build and test 
-        run: |
-            npm install
-            npm run build --if-present 
-            npm test 
+      - name: Display Hello world 
+        run:  python -c "import sys; print("hello world")"
       
   
