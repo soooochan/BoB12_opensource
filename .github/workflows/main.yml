@@ -19,12 +19,11 @@ jobs:
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
         
-      - run: echo hi > world.txt
+      - name: Save artifact
         uses: actions/upload-artifact@v3
         with:
-          path: world.txt
-          retention-days: 5
-
+          name: python-version
+          path: python-version.txt
         
         
  
