@@ -4,7 +4,6 @@ on: workflow_dispatch
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,5 +15,15 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+          
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+  
+      - name : Test with test
+        run: ./test 
+        
+      - name : Upload Apk 
+        uses : actions/upload-artifact@v3
+        with : 
+          name : android-artifact 
+          path : app/build/outputs/apk/release # 폴저 지정 : 이 폴더 아래의 모든 파일들이 하나의 artifact로 지정된다. 
